@@ -1,0 +1,45 @@
+@use './common' as *;
+
+.button {
+    color: $text-link;
+    font-size: rem(14);
+    font-weight: 500;
+    border-radius: rem(24);
+    border: 1px solid #1391E6;
+    background: #FFF;
+    display: inline-block;
+    inline-size: fit-content;
+    padding-block: rclamp(9, 11, 375, 1280);
+    padding-inline: rclamp(40, 46, 375, 1280);
+    
+    @include mq(lg) {
+      font-size: rclamp(14, 28, 1280, 1920);
+      border-radius: rem(36);
+    }
+  }
+  
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rclamp(20, 28, 375, 1280);
+    font-weight: 700;
+    letter-spacing: rclamp(1.6, 2.24, 375, 1280);
+
+
+    &::before,
+    &::after {
+      content: "";
+      inline-size: rclamp(49, 73, 375, 1280);
+      block-size: rclamp(13, 20, 375, 1280);
+      background: url(../img/recommend__heading.svg) no-repeat center center / cover;
+    }
+  
+    &::before {
+      margin-inline-end: rclamp(16, 28, 375, 1280);
+    }
+  
+    &::after {
+      margin-inline-start: rclamp(16, 28, 375, 1280);
+    }
+  }

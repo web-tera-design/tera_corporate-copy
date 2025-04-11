@@ -1,0 +1,98 @@
+@use "sass:map";
+@use "sass:math";
+
+
+
+// テキストカラー
+$text-primary: #393939; // 通常のテキスト
+$text-light: #FFFFFF; // 明るい背景でのテキスト
+$text-link: #1391E6; // リンク・強調テキスト
+$text-sub: #888888; // サブテキスト
+
+// 背景カラー
+$bg-primary: #FFFFFF; // メイン背景
+$bg-secondary: #DFF1FD; // サブ背景
+
+// ボタン/UIカラー
+$btn-primary: #1391E6; // 主要ボタン
+$btn-primary-hover: #EE5A6D; // 主要ボタンのホバー時
+$btn-secondary: #FFFFFF; // サブボタン
+$btn-secondary-hover: #DFF1FD; // サブボタンのホバー時
+
+// ボーダーカラー
+$border-primary: #CCCCCC; // 基本的なボーダー
+$border-primary-hover: #B3B3B3; // 基本的なボーダーのホバー時
+$border-secondary: #E0E0E0; // サブボーダー（薄め）
+$border-secondary-hover: #D0D0D0; // サブボーダーのホバー時
+
+// ホバー時のカラー設定
+$hover-white: #ffffff; // ホワイト系ホバー
+$hover-light: #1391E6; // ライト系ホバー
+$hover-accent: #0060A0; // アクセントホバー
+
+// フォント
+$font-main: "M PLUS Rounded 1c", sans-serif; // 本文用フォント
+
+
+// ブレイクポイント
+$breakpoints: (
+    sm: "screen and (min-width: 600px)",
+    md: "screen and (min-width: 768px)",
+    lg: "screen and (min-width: 900px)",
+    xl: "screen and (min-width: 1200px)"
+);
+
+// メディアクエリのmixin
+// @mixin mq($breakpoint: sm) {
+//     @media #{$breakpoints[$breakpoint]} {
+//       @content;
+//     }
+// }
+
+
+
+
+@mixin mq($breakpoint: sm) {
+  @media #{map.get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@function rem($px) {
+  @return ($px / 16) * 1rem; // `px` を `rem` に変換
+}
+
+@function rclamp($min, $max, $minViewport, $maxViewport) {
+  $vwScale: ($max - $min) / ($maxViewport - $minViewport);
+  $baseOffset: $min - $minViewport * $vwScale;
+
+  // clamp() が壊れないよう min/max 順を正す
+  $minValue: min($min, $max);
+  $maxValue: max($min, $max);
+
+  $minRem: $minValue / 16;
+  $maxRem: $maxValue / 16;
+  $baseOffsetRem: $baseOffset / 16;
+  $vwScaleRem: $vwScale * 100;
+
+  @return clamp(#{$minRem}rem, #{$baseOffsetRem}rem + #{$vwScaleRem}vw, #{$maxRem}rem);
+}
+
+@function rclamp3($min-size, $mid-size, $min-px, $mid-px) {
+  // ✅ rem 変換
+  $min-size-rem: math.div($min-size, 16) * 1rem;
+  $mid-size-rem: math.div($mid-size, 16) * 1rem;
+
+  // ✅ 1920px での比率維持
+  $ratio: math.div($mid-size, $mid-px);
+  $max-size-rem: math.div(1920 * $ratio, 16) * 1rem;
+
+  // ✅ 傾き（slope1）計算
+  $slope1: math.div(($mid-size - $min-size), ($mid-px - $min-px));
+
+  // ✅ fluid1 の計算（100vw でもOK）
+  $fluid1: calc((100vw - #{$min-px}px) * #{$slope1} + #{$min-size-rem});
+
+  // ✅ clamp() でサイズ制御
+  @return clamp(#{$min-size-rem}, #{$fluid1}, #{$max-size-rem});
+}
