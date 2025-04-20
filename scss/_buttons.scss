@@ -1,22 +1,26 @@
 @use './common' as *;
 
 .button {
-    color: $text-link;
-    font-size: rem(14);
-    font-weight: 500;
-    border-radius: rem(24);
-    border: 1px solid #1391E6;
-    background: #FFF;
-    display: inline-block;
-    inline-size: fit-content;
-    padding-block: rclamp(9, 11, 375, 1280);
-    padding-inline: rclamp(40, 46, 375, 1280);
-    
-    @include mq(lg) {
-      font-size: rclamp(14, 28, 1280, 1920);
-      border-radius: rem(36);
-    }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: fit-content;
+  margin-inline: auto;
+  padding-block: rclamp(9, 11, 375, 1280);
+  padding-inline: rclamp(40, 46, 375, 1280);
+  font-size: rem(14);
+  font-weight: 500;
+  border-radius: rem(24);
+  border: 1px solid #1391E6;
+  background: #FFF;
+  color: $text-link;
+  transition: all 0.3s ease;
+  
+  @include mq(lg) {
+    // font-size: rclamp(14, 20, 1280, 1920);
+    border-radius: rem(36);
   }
+}
   
   .heading {
     display: flex;
