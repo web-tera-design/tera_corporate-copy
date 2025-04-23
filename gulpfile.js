@@ -5,7 +5,7 @@ import path from 'path'
 import fs from 'fs/promises'
 
 const paths = {
-  src: './img/',
+  src: img/',
   dest: './dist-img/'
 }
 

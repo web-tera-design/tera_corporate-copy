@@ -17,14 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", scaleContent);
 });
 
-/**
- * JavaScript（aria-current="page"も追加バージョン）
- * 現在のページのリンクに自動で is-active クラスと aria-current="page" を付与するスクリプト
- * 
- * - is-active → SCSSで色や下線などをコントロール
- * - aria-current → アクセシビリティ向上（スクリーンリーダーなどが「今いるページ」と認識できる）
- */
-
 // DOMの読み込み完了後に実行
 document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('.header__nav-link');
@@ -38,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 
 
 // ドロワー
