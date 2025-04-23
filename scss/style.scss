@@ -8,75 +8,75 @@ body {
     background-color: $bg-primary;
 }
 
-// /* ✅ 画面全体に黒から白背景＆ロゴ */
-// #overlay {
-//   position: fixed;
-//   inset: 0;
-//   background-color: #000; /* ✅ 初期状態：黒 */
-//   z-index: 9999;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   opacity: 1;
-//   perspective: 1000px; /* 視差効果を加えて3D空間を明確に */
-//   animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
-// }
+/* ✅ 画面全体に黒から白背景＆ロゴ */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #000; /* ✅ 初期状態：黒 */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  perspective: 1000px; /* 視差効果を加えて3D空間を明確に */
+  animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
+}
 
-// /* ✅ ロゴのスタイル */
-// #overlay img {
-//   inline-size: max(40%, 270px); /* 画面幅の40%に基づき、最小幅は270px */
-//   height: auto;
-//   transform-origin: center; /* ✅ 中央から拡大 */
-//   animation:
-//     logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
-//     logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
-//     logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
-// }
+/* ✅ ロゴのスタイル */
+#overlay img {
+  inline-size: max(40%, 270px); /* 画面幅の40%に基づき、最小幅は270px */
+  height: auto;
+  transform-origin: center; /* ✅ 中央から拡大 */
+  animation:
+    logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
+    logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
+    logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
+}
 
-// /* ✅ ロゴフェードインアニメーション */
-// @keyframes logoFadeIn {
-//   0% {
-//     opacity: 0;
-//     transform: translateZ(-300px) scale(0.8); /* ✅ 画面の奥からズームイン */
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateZ(0) scale(1); /* ✅ 正面でズームイン完了 */
-//   }
-// }
+/* ✅ ロゴフェードインアニメーション */
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateZ(-300px) scale(0.8); /* ✅ 画面の奥からズームイン */
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) scale(1); /* ✅ 正面でズームイン完了 */
+  }
+}
 
-// /* ✅ ロゴ保持アニメーション */
-// @keyframes logoHold {
-//   0% {
-//     opacity: 1;
-//     transform: translateZ(0) scale(1); /* ✅ 正面でキープ */
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateZ(0) scale(1); /* ✅ 変化なしでキープ */
-//   }
-// }
+/* ✅ ロゴ保持アニメーション */
+@keyframes logoHold {
+  0% {
+    opacity: 1;
+    transform: translateZ(0) scale(1); /* ✅ 正面でキープ */
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) scale(1); /* ✅ 変化なしでキープ */
+  }
+}
 
-// /* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
-// @keyframes logoFadeOut {
-//   0% {
-//     opacity: 1;
-//   }
-//   100% {
-//     opacity: 0; /* ✅ ふわっとフェードアウト */
-//     visibility: hidden; /* ✅ 完全に非表示 */
-//   }
-// }
+/* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
+@keyframes logoFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; /* ✅ ふわっとフェードアウト */
+    visibility: hidden; /* ✅ 完全に非表示 */
+  }
+}
 
-// /* ✅ 背景のフェードイン：黒から白に変化 */
-// @keyframes backgroundFadeIn {
-//   0% {
-//     background-color: #f4f4f4; /* ✅ 初期状態：黒 */
-//   }
-//   100% {
-//     background-color: #f4f4f4; /* ✅ フェードイン後に白 */
-//   }
-// }
+/* ✅ 背景のフェードイン：黒から白に変化 */
+@keyframes backgroundFadeIn {
+  0% {
+    background-color: #f4f4f4; /* ✅ 初期状態：黒 */
+  }
+  100% {
+    background-color: #f4f4f4; /* ✅ フェードイン後に白 */
+  }
+}
 
 
 
@@ -1402,19 +1402,20 @@ body {
   grid-template-columns: rclamp(133, 240, 375, 768) 1fr;
   transition: all 0.3s ease;
 
+
   @include mq(md) {
     position: relative;
-    overflow: hidden;
     gap: 0;
     grid-template-columns: 1fr;
     inline-size: rclamp(240, 300, 375, 1280);
     border-radius: rem(20);
+    overflow: hidden;
     background: #FFF;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   }
 
   &:hover {
-    .blog__image {
+    .blog__image img{
       transform: scale(1.1);
     }
 
@@ -1427,17 +1428,17 @@ body {
 .blog__image {
   block-size: rem(100);
   object-fit: cover;
-  transition: all 0.3s ease;
-
+  overflow: hidden;
   @include mq(md) {
     block-size: rem(188);
   }
-
+  
   img {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
+    transition: all 0.3s ease;
   }
 }
 
@@ -1770,6 +1771,9 @@ body {
   a {
     font-size: rem(16);
     font-weight: 500;
+    display: inline-block;
+    background-color: transparent;
+    transition: all 0.3s ease;
     &::before {
       content: "";
       position: absolute;
@@ -1779,6 +1783,23 @@ body {
       inset-inline-start: 0;
       inset-block-start: 50%;
       transform: translateY(-50%);
+    }
+  }
+  @keyframes hoverPop {
+    0% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover a{
+      animation: hoverPop 0.8s ease forwards;
     }
   }
 }
@@ -1809,7 +1830,7 @@ body {
   background: $text-link;
   text-align: center;
 
-  @include mq(lg) {
+  @include mq(xl) {
     padding-block-start: rem(16);
     padding-block-end: rem(18);
   }
@@ -1822,7 +1843,7 @@ body {
 }
 
 .reserve__button {
-
+  display: none;
   @include mq(xl) {
   position: fixed;
   display: flex;
@@ -1837,13 +1858,13 @@ body {
   block-size: rem(120);
   border-radius: 20px 0px 0px 20px;
   background: $text-link;
-  transition: all 0.3s ease;
+  // transition: all 0.3s ease;
 
-    @media (any-hover: hover) {
-      &:hover {
-        background: $hover-accent;
-      }
-    }
+    // @media (any-hover: hover) {
+    //   &:hover {
+    //     background: $hover-accent;
+    //   }
+    // }
   }
 }
 

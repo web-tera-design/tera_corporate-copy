@@ -27,23 +27,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js" defer></script>
+
 
     <!-- 自作スクリプト（deferでHTML解析後に実行） -->
-    <script src="./js/script.js" defer></script>
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
     <div id="overlay">
-      <img src="img/header_logo.svg" alt="会社ロゴ" width="270" height="32">
+      <img src="../img/header_logo.svg" alt="会社ロゴ" width="270" height="32">
     </div> <!-- ✅ 最初の白背景 -->
     <header class="header">
       <div class="header__inner">
         <h1 class="header__logo">
           <a href="/" class="header__logo-link">
-            <img src="img/header_logo.svg" alt="みなみ歯科クリニック" width="270" height="32">
+            <img src="../img/header_logo.svg" alt="みなみ歯科クリニック" width="270" height="32">
           </a>
         </h1>
         <nav class="header__nav">
@@ -98,7 +100,7 @@
           <div class="header__suv-list">
             <p class="header__suv-item-text">〒166-0001 東京都杉並区阿佐谷北7-3-1</p>
             <a href="" class="header__suv-item">
-                <img src="img/icon_tel.svg" alt="" class="header__suv-item-icon" width="28" height="29">
+                <img src="../img/icon_tel.svg" alt="" class="header__suv-item-icon" width="28" height="29">
                 03-1234-5678
             </a>
           </div>
@@ -197,21 +199,21 @@
             <div class="swiper card__swiper --swiper1">
               <div class="swiper-wrapper card__swiper-wrapper">
                 <div class="swiper-slide card__swiper-slide">
-                  <img src="img/img.webp" alt="" width="670" height="894" class="slide-img">
+                  <img src="../img/img.webp" alt="" width="670" height="894" class="slide-img">
                   <div class="swiper-slide__text">
                     <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
                     <p class="swiper-slide__sub">アットホームな歯医者さん</p>
                   </div>
                 </div>
                 <div class="swiper-slide card__swiper-slide">
-                  <img src="img/img1.webp" alt="" width="670" height="894" class="slide-img">
+                  <img src="../img/img1.webp" alt="" width="670" height="894" class="slide-img">
                   <div class="swiper-slide__text">
                     <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
                     <p class="swiper-slide__sub">アットホームな歯医者さん</p>
                   </div>
                 </div>
                 <div class="swiper-slide card__swiper-slide">
-                  <img src="img/img2.webp" alt="" width="670" height="894" class="slide-img">
+                  <img src="../img/img2.webp" alt="" width="670" height="894" class="slide-img">
                   <div class="swiper-slide__text">
                     <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
                     <p class="swiper-slide__sub">アットホームな歯医者さん</p>
@@ -221,11 +223,11 @@
             </div>
             <div class="card__swiper-bottom">
               <div class="swiper-button-prev --swiper1">
-                <img src="img/arrow-left.svg" alt="" width="60" height="60">
+                <img src="../img/arrow-left.svg" alt="" width="60" height="60">
               </div>
               <div class="swiper-pagination --swiper1"></div>
               <div class="swiper-button-next --swiper1">
-                <img src="img/arrow-right.svg" alt="" width="60" height="60">
+                <img src="../img/arrow-right.svg" alt="" width="60" height="60">
               </div>
             </div>
           </div>
@@ -237,21 +239,21 @@
                 <div class="swiper card__swiper --swiper1">
                   <div class="swiper-wrapper card__swiper-wrapper">
                     <div class="swiper-slide card__swiper-slide">
-                            <img src="img/img.webp" alt="" width="670" height="894">
+                            <img src="../img/img.webp" alt="" width="670" height="894">
                       <div class="swiper-slide__text">
                         <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
                         <p class="swiper-slide__sub">アットホームな歯医者さん</p>
                       </div>
                     </div>
                     <div class="swiper-slide card__swiper-slide">
-                            <img src="img/img1.webp" alt="" width="670" height="894">
+                            <img src="../img/img1.webp" alt="" width="670" height="894">
                         <hgroup class="swiper-slide__text">
                             <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
                             <p class="swiper-slide__sub">アットホームな歯医者さん</p>
                         </hgroup>
                     </div>
                     <div class="swiper-slide card__swiper-slide">
-                            <img src="img/img2.webp" alt="" width="670" height="894">
+                            <img src="../img/img2.webp" alt="" width="670" height="894">
                         <hgroup class="swiper-slide__text">
                           <h2 class="swiper-slide__heading">街の皆さまの笑顔を守る</h2>
                           <p class="swiper-slide__sub">アットホームな歯医者さん</p>
@@ -261,11 +263,11 @@
                 </div>
                 <div class="card__swiper-bottom">
                     <div class="swiper-button-prev --swiper1">
-                        <img src="img/arrow-left.svg" alt="" width="60" height="60">
+                        <img src="../img/arrow-left.svg" alt="" width="60" height="60">
                     </div>
                     <div class="swiper-pagination --swiper1"></div>
                     <div class="swiper-button-next --swiper1">
-                        <img src="img/arrow-right.svg" alt="" width="60" height="60">
+                        <img src="../img/arrow-right.svg" alt="" width="60" height="60">
                     </div>
                 </div>
               </div>
@@ -273,7 +275,7 @@
         </div> -->
         <div class="mv__info">
             <div class="mv__info-image">
-              <img src="img/medical-time-pc.png" alt="診療時間表" width="670" height="232" >
+              <img src="../img/medical-time-pc.png" alt="診療時間表" width="670" height="232" >
             </div>
             <div class="mv__info-content">
               <div class="mv__info-header">
@@ -310,10 +312,10 @@
         </div>
       </div>
       <div class="concept__image">
-        <img src="img/concept_img.webp" alt="治療中の画像" width="1280" height="876">
+        <img src="../img/concept_img.webp" alt="治療中の画像" width="1280" height="876">
       </div>
       <div class="concept__bg-image">
-        <img src="img/concept-bg.svg" alt="" width="1310" height="726">
+        <img src="../img/concept-bg.svg" alt="" width="1310" height="726">
       </div>
     </section>
     <section class="recommend">
@@ -324,18 +326,18 @@
         <div class="recommend__heading">
           <div class="recommend__items">
             <div class="recommend__item">
-              <img src="img/recommend-1.svg" alt="" width="177" height="33">
-              <img src="img/recommend-img-01.svg" alt="" width="276" height="258">
+              <img src="../img/recommend-1.svg" alt="" width="177" height="33">
+              <img src="../img/recommend-img-01.svg" alt="" width="276" height="258">
               <p class="recommend__text">歯の治療において、小さな違和感は大きなストレスにつながります。<br>私たちは常に快適な歯科医療技術の研究を行っております。</p>
             </div>
             <div class="recommend__item">
-              <img src="img/recommend-2.svg" alt="" width="182" height="33">
-              <img src="img/recommend-img-02.svg" alt="" width="276" height="258">
+              <img src="../img/recommend-2.svg" alt="" width="182" height="33">
+              <img src="../img/recommend-img-02.svg" alt="" width="276" height="258">
               <p class="recommend__text">「通いやすさ」も医院選びの重要なポイントと考え、2019年のリニューアルを期に更に駅の近くへ場所を移しました。</p>
             </div>
             <div class="recommend__item">
-              <img src="img/recommend-3.svg" alt="" width="182" height="33">
-              <img src="img/recommend-img-03.svg" alt="" width="276" height="258">
+              <img src="../img/recommend-3.svg" alt="" width="182" height="33">
+              <img src="../img/recommend-img-03.svg" alt="" width="276" height="258">
               <p class="recommend__text">朝から夜までお仕事をされている方のために、診療時間を見直しました。<br><span class="text__accent">※駆け込みでも対応可能ですが、事前にご連絡いただけるとスムーズです。</span></p>
             </div>
           </div>
@@ -345,12 +347,12 @@
     <section class="medical">
       <div class="medical__bg-top">
         <picture>
-          <source srcset="img/bg-top.png" media="(min-width: 900px)">
-          <img src="img/bg-top-sp.png" alt="背景画像" loading="lazy" width="750" height="176">
+          <source srcset="../img/bg-top.png" media="(min-width: 900px)">
+          <img src="../img/bg-top-sp.png" alt="背景画像" loading="lazy" width="750" height="176">
         </picture>
       </div>
       <div class="medical__bg-bottom">
-        <img src="img/bg-bottom-pc1.png" alt="" width="2560" height="194">
+        <img src="../img/bg-bottom-pc1.png" alt="" width="2560" height="194">
       </div>
       <div class="medical__heading">
         <h2 class="medical__heading-title heading">診療案内</h2>
@@ -385,7 +387,7 @@
         <div class="blog__cards">
           <a class="blog__card">
             <div class="blog__image">
-              <img src="img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202" >
+              <img src="../img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202" >
             </div>
             <div class="blog__content">
               <span class="blog__label">お知らせ</span>
@@ -395,7 +397,7 @@
           </a>
           <a class="blog__card">
             <div class="blog__image">
-              <img src="img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+              <img src="../img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
             </div>
             <div class="blog__content">
               <span class="blog__label">その他</span>
@@ -405,7 +407,7 @@
           </a>
           <a class="blog__card">
             <div class="blog__image">
-              <img src="img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+              <img src="../img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
             </div>
             <div class="blog__content">
               <span class="blog__label">その他</span>
@@ -415,7 +417,7 @@
           </a>
           <a class="blog__card">
             <div class="blog__image">
-              <img src="img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+              <img src="../img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
             </div>
             <div class="blog__content">
               <span class="blog__label">その他</span>
@@ -425,7 +427,7 @@
           </a>
           <a class="blog__card">
             <div class="blog__image">
-              <img src="img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+              <img src="../img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
             </div>
             <div class="blog__content">
               <span class="blog__label">その他</span>
@@ -435,7 +437,7 @@
           </a>
           <a class="blog__card">
             <div class="blog__image">
-              <img src="img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
+              <img src="../img/blog-image.webp" alt="医師がレントゲンを確認している様子" width="266" height="202">
             </div>
             <div class="blog__content">
               <span class="blog__label">その他</span>
@@ -511,7 +513,7 @@
               </a>
             </div>
             <div class="footer-info__image">
-              <img src="img/medical-time-pc.png" alt="診療スケジュール表" width="670" height="232">
+              <img src="../img/medical-time-pc.png" alt="診療スケジュール表" width="670" height="232">
             </div>
           </div>
           <div class="footer-info__map">
@@ -569,6 +571,8 @@
     <div class="footer__copy-light">
       <small class="cory-light__text">©︎2020-2021 みなみ歯科クリニック</small>
     </div>
+
+    
     <a href="" class="reserve__button">
       <svg width="52" height="32" viewBox="0 0 52 32" fill="none">
         <path d="M47.7904 7.55811H38.1418C37.0003 7.55811 36.0742 8.4842 36.0742 9.62566V27.5444C36.0742 28.6859 37.0003 29.612 38.1418 29.612H47.7904C48.9318 29.612 49.8579 28.6859 49.8579 27.5444V9.62566C49.8579 8.4842 48.9318 7.55811 47.7904 7.55811ZM42.9661 28.2336C42.2037 28.2336 41.5877 27.6176 41.5877 26.8552C41.5877 26.0928 42.2037 25.4769 42.9661 25.4769C43.7285 25.4769 44.3444 26.0928 44.3444 26.8552C44.3444 27.6176 43.7285 28.2336 42.9661 28.2336ZM47.7904 23.5816C47.7904 23.8659 47.5578 24.0985 47.2735 24.0985H38.6587C38.3744 24.0985 38.1418 23.8659 38.1418 23.5816V10.1425C38.1418 9.85825 38.3744 9.62566 38.6587 9.62566H47.2735C47.5578 9.62566 47.7904 9.85825 47.7904 10.1425V23.5816Z" fill="white"/>
@@ -606,12 +610,6 @@
         </a>
       </div>
     </div>
-    <div class="p-test-block">テスト用クラス</div>
-    <div class="p-test-block">テスト用クラス</div>
-    <div class="p-test-block">テスト用クラス</div>
-    <div class="p-test-block">テスト用クラス</div>
-    <div class="p-test-block">テスト用クラス</div>
-
   </body>
   </html>
   

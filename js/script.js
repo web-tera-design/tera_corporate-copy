@@ -238,151 +238,151 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 5000);
 });
-// サイト表示までのロゴとswiper=================================
-
-
-/* =================================================== 
-※1 effectについて
-slide：左から次のスライドが流れてくる  
-fade：次のスライドがふわっと表示  
-  → fadeEffect: { crossFade: true } を加えると滑らか  
-cube：スライドが立方体になり、3D回転を繰り返す  
-coverFlow：写真やアルバムジャケットをめくるような動き  
-flip：平面が回転するような動き  
-cards：カードを順番に見ていくような動き  
-creative：カスタマイズしたアニメーション  
-
-=======================================================
-※2 paginationのタイプ
-bullets：ドットで表示  
-fraction：分数表示（例：1 / 3）  
-progressbar：進捗バー形式で表示  
-custom：HTMLやJSで自由にカスタマイズ  
-
-===================================================== */
-
-
-// サイト表示までのロゴ制御とswiper==========================================
-// document.addEventListener("DOMContentLoaded", () => {
-//   // ✅ Swiperスライド内のテキストを取得
-//   const swiperTexts = document.querySelectorAll(".swiper-slide__text");
-
-//   // ✅ 一文字ずつ出現の関数
-//   function startTypingAnimation(target, delay = 0) {
-//     const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
-
-//     headings.forEach((heading, index) => {
-//       const text = heading.innerText; // ✅ 元のテキストを取得
-//       heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
-//       text.split("").forEach((char, charIndex) => {
-//         const span = document.createElement("span");
-//         span.innerText = char;
-
-//         // ✅ heading と sub にラグを入れる
-//         const extraDelay = index === 1 ? 1.5 : 0; // ✅ sub だけ遅延
-//         span.style.animationDelay = `${charIndex * 0.15 + extraDelay}s`; // ✅ 0.2秒ごとに遅延
-//         heading.appendChild(span);
-//       });
-//     });
-//   }
-
-//   // ✅ トップビジュアルの全テキストに適用
-//   swiperTexts.forEach((text) => {
-//     startTypingAnimation(text);
-//   });
-
-//   // ✅ Swiper の初期化（カードスライダー）
-//   const cardSwiper = new Swiper(".card__swiper", {
-//     speed: 1000, // ✅ 表示切り替えのスピード
-//     effect: "fade", // ✅ 切り替えのmotion
-//     loop: true, // ✅ ループ再生
-//     autoplay: {
-//       delay: 5000, // ✅ 自動スライドの時間
-//     },
-//     pagination: {
-//       el: ".swiper-pagination",
-//       clickable: true,
-//     },
-//     navigation: {
-//       prevEl: ".swiper-button-prev",
-//       nextEl: ".swiper-button-next",
-//     },
-//     on: {
-//       init: () => {
-//         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
-//         if (activeSlide) {
-//           startTypingAnimation(activeSlide);
-//         }
-//       },
-//       slideChangeTransitionStart: () => {
-//         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
-//         if (activeSlide) {
-//           startTypingAnimation(activeSlide);
-//         }
-//       },
-//     },
-//   });
-
-//   // ✅ オーバーレイのフェードアウト制御
-//   const overlay = document.getElementById("overlay");
-
-//   // ✅ 5秒後にフェードアウト開始
-//   setTimeout(() => {
-//     overlay.style.transition = "opacity 4s ease-in-out"; // ✅ フェードアウト時間を4秒に修正
-//     overlay.style.opacity = "0";
-
-//     // ✅ フェードアウト後に完全非表示 → サイトのコンテンツを表示
-//     overlay.addEventListener("transitionend", () => {
-//       overlay.style.display = "none"; // ✅ オーバーレイを非表示
-//       console.log("✅ オーバーレイが非表示になりました");
-
-//       // ✅ サイトコンテンツを表示
-//       const siteContent = document.getElementById('siteContent'); // サイトのコンテンツ要素を取得
-//       if (siteContent) {
-//         siteContent.style.display = 'block'; // サイト表示
-//       }
-//     });
-//   }, 5000); // ✅ 5秒後にフェードアウト開始
-// });
 // // サイト表示までのロゴとswiper=================================
-
-
-
-//   //ブレイクポイントによって変える
-//   // breakpoints: { 
-//   //   768: {
-//   //     slidesPerView: 1.2,
-//   //     spaceBetween: 15,
-//   //   },
-//   //   1500: {
-//   //     slidesPerView: 3,
-//   //     spaceBetween: 40,
-//   //   },
-//   // }
 
 
 // /* =================================================== 
 // ※1 effectについて
-// slide：左から次のスライドが流れてくる
-// fade：次のスライドがふわっと表示
-// ■ fadeの場合は下記を記述
-//   fadeEffect: {
-//     crossFade: true
-//   },
-// cube：スライドが立方体になり、3D回転を繰り返す
-// coverFlow：写真やアルバムジャケットをめくるようなアニメーション
-// flip：平面が回転するようなアニメーション
-// cards：カードを順番にみていくようなアニメーション
-// creative：カスタマイズしたアニメーションを使うときに使用します
+// slide：左から次のスライドが流れてくる  
+// fade：次のスライドがふわっと表示  
+//   → fadeEffect: { crossFade: true } を加えると滑らか  
+// cube：スライドが立方体になり、3D回転を繰り返す  
+// coverFlow：写真やアルバムジャケットをめくるような動き  
+// flip：平面が回転するような動き  
+// cards：カードを順番に見ていくような動き  
+// creative：カスタマイズしたアニメーション  
 
 // =======================================================
 // ※2 paginationのタイプ
-// bullets：スライド枚数と同じ数のドットが表示
-// fraction：分数で表示（例：1 / 3）
-// progressbar：スライドの進捗に応じてプログレスバーが伸びる
-// custom：自由にカスタマイズ
+// bullets：ドットで表示  
+// fraction：分数表示（例：1 / 3）  
+// progressbar：進捗バー形式で表示  
+// custom：HTMLやJSで自由にカスタマイズ  
 
-// =====================================================*/
+// ===================================================== */
+
+
+// // サイト表示までのロゴ制御とswiper==========================================
+// // document.addEventListener("DOMContentLoaded", () => {
+// //   // ✅ Swiperスライド内のテキストを取得
+// //   const swiperTexts = document.querySelectorAll(".swiper-slide__text");
+
+// //   // ✅ 一文字ずつ出現の関数
+// //   function startTypingAnimation(target, delay = 0) {
+// //     const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
+
+// //     headings.forEach((heading, index) => {
+// //       const text = heading.innerText; // ✅ 元のテキストを取得
+// //       heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
+// //       text.split("").forEach((char, charIndex) => {
+// //         const span = document.createElement("span");
+// //         span.innerText = char;
+
+// //         // ✅ heading と sub にラグを入れる
+// //         const extraDelay = index === 1 ? 1.5 : 0; // ✅ sub だけ遅延
+// //         span.style.animationDelay = `${charIndex * 0.15 + extraDelay}s`; // ✅ 0.2秒ごとに遅延
+// //         heading.appendChild(span);
+// //       });
+// //     });
+// //   }
+
+// //   // ✅ トップビジュアルの全テキストに適用
+// //   swiperTexts.forEach((text) => {
+// //     startTypingAnimation(text);
+// //   });
+
+// //   // ✅ Swiper の初期化（カードスライダー）
+// //   const cardSwiper = new Swiper(".card__swiper", {
+// //     speed: 1000, // ✅ 表示切り替えのスピード
+// //     effect: "fade", // ✅ 切り替えのmotion
+// //     loop: true, // ✅ ループ再生
+// //     autoplay: {
+// //       delay: 5000, // ✅ 自動スライドの時間
+// //     },
+// //     pagination: {
+// //       el: ".swiper-pagination",
+// //       clickable: true,
+// //     },
+// //     navigation: {
+// //       prevEl: ".swiper-button-prev",
+// //       nextEl: ".swiper-button-next",
+// //     },
+// //     on: {
+// //       init: () => {
+// //         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+// //         if (activeSlide) {
+// //           startTypingAnimation(activeSlide);
+// //         }
+// //       },
+// //       slideChangeTransitionStart: () => {
+// //         const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+// //         if (activeSlide) {
+// //           startTypingAnimation(activeSlide);
+// //         }
+// //       },
+// //     },
+// //   });
+
+// //   // ✅ オーバーレイのフェードアウト制御
+// //   const overlay = document.getElementById("overlay");
+
+// //   // ✅ 5秒後にフェードアウト開始
+// //   setTimeout(() => {
+// //     overlay.style.transition = "opacity 4s ease-in-out"; // ✅ フェードアウト時間を4秒に修正
+// //     overlay.style.opacity = "0";
+
+// //     // ✅ フェードアウト後に完全非表示 → サイトのコンテンツを表示
+// //     overlay.addEventListener("transitionend", () => {
+// //       overlay.style.display = "none"; // ✅ オーバーレイを非表示
+// //       console.log("✅ オーバーレイが非表示になりました");
+
+// //       // ✅ サイトコンテンツを表示
+// //       const siteContent = document.getElementById('siteContent'); // サイトのコンテンツ要素を取得
+// //       if (siteContent) {
+// //         siteContent.style.display = 'block'; // サイト表示
+// //       }
+// //     });
+// //   }, 5000); // ✅ 5秒後にフェードアウト開始
+// // });
+// // // サイト表示までのロゴとswiper=================================
+
+
+
+// //   //ブレイクポイントによって変える
+// //   // breakpoints: { 
+// //   //   768: {
+// //   //     slidesPerView: 1.2,
+// //   //     spaceBetween: 15,
+// //   //   },
+// //   //   1500: {
+// //   //     slidesPerView: 3,
+// //   //     spaceBetween: 40,
+// //   //   },
+// //   // }
+
+
+// // /* =================================================== 
+// // ※1 effectについて
+// // slide：左から次のスライドが流れてくる
+// // fade：次のスライドがふわっと表示
+// // ■ fadeの場合は下記を記述
+// //   fadeEffect: {
+// //     crossFade: true
+// //   },
+// // cube：スライドが立方体になり、3D回転を繰り返す
+// // coverFlow：写真やアルバムジャケットをめくるようなアニメーション
+// // flip：平面が回転するようなアニメーション
+// // cards：カードを順番にみていくようなアニメーション
+// // creative：カスタマイズしたアニメーションを使うときに使用します
+
+// // =======================================================
+// // ※2 paginationのタイプ
+// // bullets：スライド枚数と同じ数のドットが表示
+// // fraction：分数で表示（例：1 / 3）
+// // progressbar：スライドの進捗に応じてプログレスバーが伸びる
+// // custom：自由にカスタマイズ
+
+// // =====================================================*/
 
 
 // ================header__nav-link
@@ -632,6 +632,199 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 3000);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.querySelector(".reserve__button");
+  const icon = button.querySelector("svg");
+  const text = button.querySelector(".reserve__text");
+
+  // 🔁 背景色アニメーションを定義して保持
+  const bgColorAnim = gsap.to(button, {
+    keyframes: [
+      { backgroundColor: "#007acc", duration: 0.2 },
+      { backgroundColor: "#0060a0", duration: 0.2 }
+    ],
+    repeat: -1,
+    ease: "power1.inOut",
+    yoyo: true
+  });
+
+  // 🎯 ホバー時：色アニメ停止＋色固定＋スライド・スケール
+  button.addEventListener("mouseenter", () => {
+    // 色アニメーションを一時停止
+    bgColorAnim.pause();
+
+    // 色を強制的に #0060a0 に固定
+    gsap.to(button, {
+      backgroundColor: "#0060a0",
+      duration: 0.2
+    });
+
+    // スライド
+    gsap.fromTo(
+      button,
+      { y: 0 },
+      {
+        y: -10,
+        duration: 0.3,
+        yoyo: true,
+        repeat: 1,
+        ease: "power1.out"
+      }
+    );
+
+    // スケール
+    gsap.fromTo(
+      [icon, text],
+      { scale: 1 },
+      {
+        scale: 1.2,
+        duration: 0.3,
+        yoyo: true,
+        repeat: 1,
+        ease: "power1.out"
+      }
+    );
+  });
+
+  // 🛫 ホバー解除時：アニメーション再開
+  button.addEventListener("mouseleave", () => {
+    bgColorAnim.resume(); // 色アニメーションを再開
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const items = document.querySelectorAll(".recommend__item");
+
+  items.forEach((item, i) => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".recommend",
+        start: "top 40%",
+        toggleActions: "play none none none",
+        markers: false // 必要なら true
+      },
+      delay: i * 0.3 // 順番に出したい場合
+    });
+
+    tl.fromTo(item,
+      { scale: 0.5, opacity: 0 },
+      {
+        scale: 1.2,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out"
+      }
+    ).to(item,
+      {
+        scale: 1.0,
+        duration: 0.3,
+        ease: "power2.inOut"
+      }
+    );
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const services = document.querySelectorAll(".medical__service");
+
+  services.forEach((el, i) => {
+    // ① スクロールでscaleYとopacityをアニメ（1回だけ）
+    gsap.fromTo(el,
+      {
+        scaleY: 0.8,
+        opacity: 0,
+        transformOrigin: "center bottom",
+        y: 30
+      },
+      {
+        scaleY: 1,
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        delay: i * 0.2,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        onComplete: () => {
+          // ② scaleXでピクピクをループ（ずっと）
+          gsap.to(el, {
+            scaleX: 1.05,
+            duration: 0.3,
+            yoyo: true,
+            repeat: -1,
+            ease: "power1.inOut"
+          });
+        }
+      }
+    );
+  });
+});
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = Array.from(document.querySelectorAll('.blog__card'));
+
+  // offsetTopでグループ化（←こっちのが安定！）
+  const cardGroups = [];
+  let lastTop = null;
+  let currentGroup = [];
+
+  cards.forEach((card) => {
+    const top = card.offsetTop;
+
+    if (lastTop === null || top === lastTop) {
+      currentGroup.push(card);
+    } else {
+      cardGroups.push(currentGroup);
+      currentGroup = [card];
+    }
+
+    lastTop = top;
+  });
+  if (currentGroup.length > 0) {
+    cardGroups.push(currentGroup);
+  }
+
+  // グループごとにアニメーション（交互に方向変える）
+  cardGroups.forEach((group, index) => {
+    const fromX = index % 2 === 0 ? '-80vw' : '80vw';
+
+    gsap.fromTo(group,
+      { x: fromX, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: group[0],
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+        x: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: 'power1.out',
+        // stagger: 0.05, // ←グループ内もテンポ良く
+      }
+    );
+  });
+});
+
+
+
+
+
+
+
+
+
 
 
 
