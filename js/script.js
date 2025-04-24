@@ -745,16 +745,16 @@ document.addEventListener("DOMContentLoaded", () => {
           start: "top 80%",
           toggleActions: "play none none none"
         },
-        onComplete: () => {
-          // ② scaleXでピクピクをループ（ずっと）
-          gsap.to(el, {
-            scaleX: 1.05,
-            duration: 0.3,
-            yoyo: true,
-            repeat: -1,
-            ease: "power1.inOut"
-          });
-        }
+        // onComplete: () => {
+        //   // ② scaleXでピクピクをループ（ずっと）
+        //   gsap.to(el, {
+        //     scaleX: 1.05,
+        //     duration: 0.8,
+        //     yoyo: true,
+        //     repeat: -1,
+        //     ease: "power1.inOut"
+        //   });
+        // }
       }
     );
   });
@@ -814,7 +814,7 @@ const footer = document.querySelector('.footer');
 const waveMotion = { x: 0 }; // ← ダミーオブジェクト！
 
 gsap.to(waveMotion, {
-  x: -100,
+  x: -50,
   duration: 4,
   ease: 'sine.inOut',
   repeat: -1,
