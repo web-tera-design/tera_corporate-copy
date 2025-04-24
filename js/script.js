@@ -790,7 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // グループごとにアニメーション（交互に方向変える）
   cardGroups.forEach((group, index) => {
-    const fromX = index % 2 === 0 ? '-50px' : '50px';
+    const fromX = index % 2 === 0 ? '-300px' : '300px';
 
     gsap.fromTo(group,
       { x: fromX, opacity: 0 },

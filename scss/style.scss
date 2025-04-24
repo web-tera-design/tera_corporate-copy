@@ -1073,9 +1073,9 @@ body {
   justify-content: center;
   align-items: flex-start;
   
-  @include mq(md) {
-    grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
-  }
+  // @include mq(md) {
+  //   grid-template-columns: repeat(auto-fit, minmax(rem(276), 1fr));
+  // }
   @include mq(lg) {
     display: flex;
   }
@@ -1134,6 +1134,11 @@ body {
   inset-block-start: rclamp(-85, -201, 375, 1280);
   inset-inline: 0;
   block-size: rclamp(85, 201, 375, 1280);
+
+  @include mq(xl) {
+    block-size: 15vw;
+    inset-block-start: -15vw;
+  }
 
   img {
     width: 100%;
