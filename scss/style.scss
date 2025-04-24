@@ -8,6 +8,11 @@ body {
     background-color: $bg-primary;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+
 /* ✅ 画面全体に黒から白背景＆ロゴ */
 #overlay {
   position: fixed;
@@ -1119,7 +1124,7 @@ body {
 }
 
 .medical {
-  margin-block-start: rclamp(214, 335, 375, 1280);
+  margin-block-start: rclamp(214, 535, 375, 1280);
   position: relative;
   padding-block-start: rclamp(29, 104, 375, 1280);
   margin-inline: auto;;
@@ -1544,16 +1549,20 @@ body {
   background-color: $btn-secondary-hover;
   position: relative;
   padding-inline: rem(10);
+  --wave-x: 0px;
+  
   
   &::before {
     content: "";
     position: absolute;
-    inset-block-start: -32px;
-    inset-inline-start: 0;
-    block-size: 32px;
-    inline-size: 100%;
-    
-    background: url(../img/footer_bg-image.svg) no-repeat top center / cover;
+    inset-block-start: -33px;
+    inset-inline-start: 0; // 中央基準にして
+    block-size: 33px;
+    inline-size: 110vw; // ← 幅を120%にして余裕もたせる！
+    background: url(../img/footer_bg-image-pc.png) no-repeat top center / cover;
+    transform: translateX(var(--wave-x));
+    will-change: transform;
+    z-index: 0;
   }
 }
 

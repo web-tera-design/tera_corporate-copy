@@ -1,21 +1,20 @@
 
-// 画面サイズ375px以下はいい感じに縮小
-document.addEventListener("DOMContentLoaded", () => {
-  function scaleContent() {
-      const minWidth = 375;
-      if (window.innerWidth < minWidth) {
-          const scale = window.innerWidth / minWidth;
-          document.body.style.transform = `scale(${scale})`;
-          document.body.style.transformOrigin = "top left";
-          document.body.style.width = `${minWidth}px`; // レイアウト維持
-      } else {
-          document.body.style.transform = ""; // 拡大・縮小を無効化
-          document.body.style.width = ""; // デフォルトの幅に戻す
-      }
+// outerWidthが375px以下のとき viewportを375固定に
+!(function () {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  function switchViewport() {
+    const value =
+      window.outerWidth > 375
+        ? 'width=device-width,initial-scale=1'
+        : 'width=375';
+    if (viewport.getAttribute('content') !== value) {
+      viewport.setAttribute('content', value);
+    }
   }
-  scaleContent();
-  window.addEventListener("resize", scaleContent);
-});
+  addEventListener('resize', switchViewport, false);
+  switchViewport();
+})();
+
 
 // DOMの読み込み完了後に実行
 document.addEventListener('DOMContentLoaded', () => {
@@ -809,6 +808,23 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   });
 });
+
+const footer = document.querySelector('.footer');
+
+const waveMotion = { x: 0 }; // ← ダミーオブジェクト！
+
+gsap.to(waveMotion, {
+  x: -100,
+  duration: 4,
+  ease: 'sine.inOut',
+  repeat: -1,
+  yoyo: true,
+  onUpdate: () => {
+    footer.style.setProperty('--wave-x', `${waveMotion.x}px`);
+  }
+});
+
+
 
 
 
