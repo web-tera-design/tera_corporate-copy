@@ -827,7 +827,7 @@ gsap.to(waveMotion, {
 gsap.registerPlugin(ScrollTrigger);
 
 // 🐟 1匹目
-gsap.fromTo('.footer__mr',
+gsap.fromTo('.footer__mr2',
   {
     x: -100,
     y: 0,
@@ -835,11 +835,11 @@ gsap.fromTo('.footer__mr',
   },
   {
     x: () => window.innerWidth + 100,
-    y: -200,
+    y: 300,
     duration: 0.5,
     ease: 'power2.inOut',
     scrollTrigger: {
-      trigger: '.footer-nav',
+      trigger: '.footer',
       start: 'top 40%',
       once: true,
       toggleActions: 'play none none none',
@@ -849,20 +849,20 @@ gsap.fromTo('.footer__mr',
 );
 
 // 🐟 2匹目（0.4秒あとに出現）
-gsap.fromTo('.footer__mr2',
+gsap.fromTo('.footer__mr',
   {
-    x: -150,
-    y: 0, // 少し下からスタートすると自然
+    x: -100,
+    y: 100, // 少し下からスタートすると自然
     opacity: 1
   },
   {
     x: () => window.innerWidth + 100,
-    y: -100,
+    y: -200,
     duration: 0.5,
     ease: 'power2.inOut',
     delay: 0.4, // 時間差ポイント！
     scrollTrigger: {
-      trigger: '.footer-nav',
+      trigger: '.footer',
       start: 'top 40%',
       once: true,
       toggleActions: 'play none none none'

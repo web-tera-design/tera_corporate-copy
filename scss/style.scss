@@ -13,77 +13,77 @@ html, body {
 }
 
 
-// /* ✅ 画面全体に黒から白背景＆ロゴ */
-// #overlay {
-//   position: fixed;
-//   inset: 0;
-//   background-color: #fff; /* ✅ 初期状態：黒 */
-//   z-index: 9999;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   opacity: 1;
-//   perspective: 1000px; /* 視差効果を加えて3D空間を明確に */
-//   animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
-// }
+/* ✅ 画面全体に黒から白背景＆ロゴ */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #fff; /* ✅ 初期状態：黒 */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  perspective: 1000px; /* 視差効果を加えて3D空間を明確に */
+  animation: logoFadeOut 2s ease-in-out 5s forwards, backgroundFadeIn 1.5s ease-in-out forwards; /* ✅ 背景色のフェードイン追加 */
+}
 
 
 
-// /* ✅ ロゴのスタイル */
-// #overlay img {
-//   inline-size: max(40%, 270px); /* 画面幅の40%に基づき、最小幅は270px */
-//   height: auto;
-//   transform-origin: center; /* ✅ 中央から拡大 */
-//   animation:
-//     logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
-//     logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
-//     logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
-// }
+/* ✅ ロゴのスタイル */
+#overlay img {
+  inline-size: max(40%, 270px); /* 画面幅の40%に基づき、最小幅は270px */
+  height: auto;
+  transform-origin: center; /* ✅ 中央から拡大 */
+  animation:
+    logoFadeIn 3s ease-out forwards, /* ✅ 3秒かけてフェードイン */
+    logoHold 2s ease-in-out 3s forwards, /* ✅ 2秒保持 → フェードアウト準備 */
+    logoFadeOut 2s ease-in-out 5s forwards; /* ✅ 2秒でフェードアウトのみ */
+}
 
-// /* ✅ ロゴフェードインアニメーション */
-// @keyframes logoFadeIn {
-//   0% {
-//     opacity: 0;
-//     transform: translateZ(-300px) scale(0.8); /* ✅ 画面の奥からズームイン */
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateZ(0) scale(1); /* ✅ 正面でズームイン完了 */
-//   }
-// }
+/* ✅ ロゴフェードインアニメーション */
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateZ(-300px) scale(0.8); /* ✅ 画面の奥からズームイン */
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) scale(1); /* ✅ 正面でズームイン完了 */
+  }
+}
 
-// /* ✅ ロゴ保持アニメーション */
-// @keyframes logoHold {
-//   0% {
-//     opacity: 1;
-//     transform: translateZ(0) scale(1); /* ✅ 正面でキープ */
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateZ(0) scale(1); /* ✅ 変化なしでキープ */
-//   }
-// }
+/* ✅ ロゴ保持アニメーション */
+@keyframes logoHold {
+  0% {
+    opacity: 1;
+    transform: translateZ(0) scale(1); /* ✅ 正面でキープ */
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) scale(1); /* ✅ 変化なしでキープ */
+  }
+}
 
-// /* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
-// @keyframes logoFadeOut {
-//   0% {
-//     opacity: 1;
-//   }
-//   100% {
-//     opacity: 0; /* ✅ ふわっとフェードアウト */
-//     visibility: hidden; /* ✅ 完全に非表示 */
-//   }
-// }
+/* ✅ ロゴフェードアウト：ズームなしで自然にフェードアウト */
+@keyframes logoFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; /* ✅ ふわっとフェードアウト */
+    visibility: hidden; /* ✅ 完全に非表示 */
+  }
+}
 
-// /* ✅ 背景のフェードイン：黒から白に変化 */
-// @keyframes backgroundFadeIn {
-//   0% {
-//     background-color: #f4f4f4; /* ✅ 初期状態：黒 */
-//   }
-//   100% {
-//     background-color: #f4f4f4; /* ✅ フェードイン後に白 */
-//   }
-// }
+/* ✅ 背景のフェードイン：黒から白に変化 */
+@keyframes backgroundFadeIn {
+  0% {
+    background-color: #f4f4f4; /* ✅ 初期状態：黒 */
+  }
+  100% {
+    background-color: #f4f4f4; /* ✅ フェードイン後に白 */
+  }
+}
 
 // ヘッダー ========================
 .header {
@@ -1569,7 +1569,7 @@ html, body {
 .footer__mr,
 .footer__mr2 {
   position: absolute;
-  bottom: rem(40);
+  top: rem(40);
   left: -100px; // ← 左外に待機
   width: rem(80);
   opacity: 0;
