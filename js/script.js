@@ -1,19 +1,21 @@
 
-// outerWidthが375px以下のとき viewportを375固定に
-!(function () {
-  const viewport = document.querySelector('meta[name="viewport"]');
-  function switchViewport() {
-    const value =
-      window.outerWidth > 375
-        ? 'width=device-width,initial-scale=1'
-        : 'width=375';
-    if (viewport.getAttribute('content') !== value) {
-      viewport.setAttribute('content', value);
-    }
+// 画面サイズ375px以下はいい感じに縮小
+document.addEventListener("DOMContentLoaded", () => {
+  function scaleContent() {
+      const minWidth = 375;
+      if (window.innerWidth < minWidth) {
+          const scale = window.innerWidth / minWidth;
+          document.body.style.transform = `scale(${scale})`;
+          document.body.style.transformOrigin = "top left";
+          document.body.style.width = `${minWidth}px`; // レイアウト維持
+      } else {
+          document.body.style.transform = ""; // 拡大・縮小を無効化
+          document.body.style.width = ""; // デフォルトの幅に戻す
+      }
   }
-  addEventListener('resize', switchViewport, false);
-  switchViewport();
-})();
+  scaleContent();
+  window.addEventListener("resize", scaleContent);
+});
 
 
 // DOMの読み込み完了後に実行
@@ -111,35 +113,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// サイト表示までのロゴ制御とswiper==========================================
 document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("overlay");
+  const siteContent = document.getElementById("siteContent");
+  const hasVisited = localStorage.getItem('visited'); // ✅ 初回アクセス判定用
+
   // ✅ Swiperスライド内のテキストを取得
   const swiperTexts = document.querySelectorAll(".swiper-slide__text");
 
-  // ✅ 一文字ずつ出現の関数
+  // ✅ 一文字ずつ出現アニメーション
   function startTypingAnimation(target, delay = 0) {
     const headings = target.querySelectorAll(".swiper-slide__heading, .swiper-slide__sub");
-
-    const globalStartDelay = 1.5; // ✅← ここ追加（スライド全体に0.5秒の開始ディレイ）
-
+    const globalStartDelay = 1.5; // 全体のディレイを追加
 
     headings.forEach((heading, index) => {
-      const text = heading.innerText; // ✅ 元のテキストを取得
-      heading.innerHTML = ""; // ✅ 文字をクリアしてから挿入
+      const text = heading.innerText;
+      heading.innerHTML = "";
       text.split("").forEach((char, charIndex) => {
         const span = document.createElement("span");
         span.innerText = char;
 
-        // ✅ heading と sub にラグを入れる
-        const extraDelay = index === 1 ? 1.5 : 0; // ✅ sub だけ遅延
-        // ✅ 修正：globalStartDelay を加える
+        const extraDelay = index === 1 ? 1.5 : 0; // サブテキストにさらに遅延
         span.style.animationDelay = `${charIndex * 0.15 + extraDelay + globalStartDelay}s`;
         heading.appendChild(span);
       });
     });
   }
 
-  // ✅ ★追加：スライド画像にGSAPアニメーションを適用
+  // ✅ スライド画像のGSAPアニメーション
   function animateSlideImage() {
     const currentImg = document.querySelector('.swiper-slide-active .slide-img');
     if (!currentImg) return;
@@ -157,79 +158,76 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ トップビジュアルの全テキストに適用
-  swiperTexts.forEach((text) => {
-    startTypingAnimation(text);
-  });
+  // ✅ Swiperを初期化（共通処理化）
+  function initSwiper() {
+    // 初期ロード時にもテキストをタイプさせる
+    swiperTexts.forEach(text => startTypingAnimation(text));
 
-  // ✅ Swiper の初期化（カードスライダー）
-  const cardSwiper = new Swiper(".card__swiper", {
-    speed: 1000, // ✅ 表示切り替えのスピード
-    effect: "fade", // ✅ 切り替えのmotion
-    loop: true, // ✅ ループ再生
-    autoplay: {
-      delay: 6000, // ✅ 自動スライドの時間
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      prevEl: ".swiper-button-prev",
-      nextEl: ".swiper-button-next",
-    },
-
-    // ✅ イベント：初期化時とスライド変更時にテキスト＆画像アニメ発火
-    on: {
-      init: () => {
-        const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
-        if (activeSlide) {
-          startTypingAnimation(activeSlide);
-        }
-        animateSlideImage(); // ✅ GSAPアニメも実行
+    const cardSwiper = new Swiper(".card__swiper", {
+      speed: 1000,
+      effect: "fade",
+      loop: true,
+      autoplay: {
+        delay: 6000,
       },
-      slideChangeTransitionStart: () => {
-        const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
-        if (activeSlide) {
-          startTypingAnimation(activeSlide);
-        }
-        animateSlideImage(); // ✅ GSAPアニメも実行
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
       },
-    },
-
-    // ✅ 必要ならブレイクポイントで表示を変える（任意）
-    // breakpoints: { 
-    //   768: {
-    //     slidesPerView: 1.2,
-    //     spaceBetween: 15,
-    //   },
-    //   1500: {
-    //     slidesPerView: 3,
-    //     spaceBetween: 40,
-    //   },
-    // }
-  });
-
-  // ✅ オーバーレイのフェードアウト制御
-  const overlay = document.getElementById("overlay");
-
-  // ✅ 5秒後にフェードアウト開始
-  setTimeout(() => {
-    overlay.style.transition = "opacity 4s ease-in-out"; // ✅ フェードアウト時間を4秒に修正
-    overlay.style.opacity = "0";
-
-    // ✅ フェードアウト後に完全非表示 → サイトのコンテンツを表示
-    overlay.addEventListener("transitionend", () => {
-      overlay.style.display = "none"; // ✅ オーバーレイを非表示
-      console.log("✅ オーバーレイが非表示になりました");
-
-      const siteContent = document.getElementById('siteContent');
-      if (siteContent) {
-        siteContent.style.display = 'block';
+      navigation: {
+        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next",
+      },
+      on: {
+        // ✅ 初期化時のテキスト/画像演出
+        init: () => {
+          const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+          if (activeSlide) startTypingAnimation(activeSlide);
+          animateSlideImage();
+        },
+        // ✅ スライド切り替え時の演出
+        slideChangeTransitionStart: () => {
+          const activeSlide = document.querySelector(".swiper-slide-active .swiper-slide__text");
+          if (activeSlide) startTypingAnimation(activeSlide);
+          animateSlideImage();
+        },
       }
     });
-  }, 5000);
+  }
+
+  // ✅ 初回アクセスの場合（ローディング表示）
+  if (!hasVisited) {
+    localStorage.setItem('visited', 'true'); // 初回アクセスを記録
+
+    setTimeout(() => {
+      overlay.style.transition = "opacity 4s ease-in-out";
+      overlay.style.opacity = "0";
+
+      // ✅ フェードアウト完了後、overlayを非表示
+      overlay.addEventListener("transitionend", () => {
+        overlay.style.display = "none";
+        console.log("✅ オーバーレイが非表示になりました");
+
+        if (siteContent) {
+          siteContent.style.display = 'block';
+        }
+
+        // ✅ Swiperアニメーション開始
+        initSwiper();
+      });
+    }, 5000); // ローディング演出時間
+  } else {
+    // ✅ 2回目以降は即表示＆ローディングスキップ
+    overlay.style.display = "none";
+    if (siteContent) {
+      siteContent.style.display = 'block';
+    }
+
+    // ✅ Swiperアニメーション開始
+    initSwiper();
+  }
 });
+
 // // サイト表示までのロゴとswiper=================================
 
 
@@ -843,7 +841,6 @@ gsap.fromTo('.footer__mr2',
       start: 'top 40%',
       once: true,
       toggleActions: 'play none none none',
-      markers: true,
     }
   }
 );
