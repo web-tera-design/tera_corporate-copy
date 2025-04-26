@@ -1,21 +1,22 @@
 
-// 画面サイズ375px以下はいい感じに縮小
 document.addEventListener("DOMContentLoaded", () => {
   function scaleContent() {
-      const minWidth = 375;
-      if (window.innerWidth < minWidth) {
-          const scale = window.innerWidth / minWidth;
-          document.body.style.transform = `scale(${scale})`;
-          document.body.style.transformOrigin = "top left";
-          document.body.style.width = `${minWidth}px`; // レイアウト維持
-      } else {
-          document.body.style.transform = ""; // 拡大・縮小を無効化
-          document.body.style.width = ""; // デフォルトの幅に戻す
-      }
+    const minWidth = 375;
+    const width = Math.min(window.innerWidth, screen.width); // ✅ innerWidthとscreen幅の小さい方を見る
+    if (width < minWidth) {
+      const scale = width / minWidth;
+      document.body.style.transform = `scale(${scale})`;
+      document.body.style.transformOrigin = "top left";
+      document.body.style.width = `${minWidth}px`;
+    } else {
+      document.body.style.transform = "";
+      document.body.style.width = "";
+    }
   }
   scaleContent();
   window.addEventListener("resize", scaleContent);
 });
+
 
 
 // DOMの読み込み完了後に実行
